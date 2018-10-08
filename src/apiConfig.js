@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: 'https://tweeter-remote-0808.herokuapp.com/',
+  production: 'https://tweeter-remote-0808.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
