@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import apiUrl from './apiConfig'
+import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-class Tweeter extends React.Component {
+class DisplayPublic extends React.Component {
   constructor (props) {
     super (props)
 
@@ -23,21 +23,23 @@ class Tweeter extends React.Component {
 
     const displayTable = this.state.sightings.map(sighting => {
       return (
-        <tr>
-          <td> {sighting._id} </td>
-          <td> {sighting.entry} </td>
-          <td> {sighting.description} </td>
-        </tr>
+        <tbody key={sighting._id}>
+          <tr>
+            <td>{sighting._id}</td>
+            <td>{sighting.entry}</td>
+            <td>{sighting.description}</td>
+          </tr>
+        </tbody>
       )
     })
 
     return (
       <React.Fragment>
-        <h1> backend origin is {this.state.origin} </h1>
-        <table> {displayTable} </table>
+        <h1>backend origin is {this.state.origin}</h1>
+        <table>{displayTable}</table>
       </React.Fragment>
     )
   }
 }
 
-export default Tweeter
+export default DisplayPublic

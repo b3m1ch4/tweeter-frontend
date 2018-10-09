@@ -8,11 +8,31 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import Tweeter from './Tweeter.js'
+import DisplayPublic from './Tweeter/displayPublic.js'
+import DisplayPrivate from './Tweeter/displayPrivate.js'
+import Post from './Tweeter/Create.js'
 import apiUrl from './apiConfig.js'
 
-const Home = () => (
-  <Tweeter />
+const home = () => (
+  <h1> home </h1>
+)
+
+const post = () => (
+  <React.Fragment>
+    <Post />
+  </React.Fragment>
+)
+
+const tweets = () => (
+  <React.Fragment>
+    <DisplayPublic />
+  </React.Fragment>
+)
+
+const chirps = () => (
+  <React.Fragment>
+    <DisplayPrivate />
+  </React.Fragment>
 )
 
 class App extends Component {
@@ -63,8 +83,12 @@ class App extends Component {
         </main>
 
         <div>
-          <Route exact path="/" component={Home} />
-          { Home }
+          <Route exact path="/tweets" component={tweets} />
+          { tweets }
+          <Route exact path="/chirps" component={chirps} />
+          { chirps }
+          <Route exact path="/post" component={post} />
+          { post }
         </div>
       </React.Fragment>
     )
