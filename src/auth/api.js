@@ -1,5 +1,4 @@
 import apiUrl from '../apiConfig.js'
-// const apiUrl = 'http://localhost:4741'
 
 export const handleErrors = res => {
   if (res.ok) {

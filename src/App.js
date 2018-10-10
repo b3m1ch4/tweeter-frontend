@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route, Link } from 'react-router-dom'
-
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import DisplayPublic from './Tweeter/displayPublic.js'
-import DisplayPrivate from './Tweeter/displayPrivate.js'
+import DisplayPublic from './Tweeter/DisplayPublic.js'
+import DisplayPrivate from './Tweeter/DisplayPrivate.js'
 import Post from './Tweeter/Create.js'
 import apiUrl from './apiConfig.js'
 
@@ -83,12 +82,12 @@ class App extends Component {
         </main>
 
         <div>
-          <Route exact path="/tweets" component={tweets} />
-          { tweets }
-          <Route exact path="/chirps" component={chirps} />
-          { chirps }
-          <Route exact path="/post" component={post} />
-          { post }
+          <AuthenticatedRoute exact path="/tweets" component={tweets} />
+          <DisplayPublic flash={this.flash} user={user} />
+          <AuthenticatedRoute exact path="/chirps" component={chirps} />
+          <DisplayPrivate flash={this.flash} user={user} />
+          <AuthenticatedRoute exact path="/post" component={post} />
+          <Post flash={this.flash} user={user} />
         </div>
       </React.Fragment>
     )
