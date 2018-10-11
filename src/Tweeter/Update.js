@@ -6,70 +6,46 @@ import messages from '../auth/messages'
 import Header from '../header/Header.js'
 import user from '../apiConfig.js'
 import axios from 'axios'
+import { updateWithFetch } from '../fetch/verbs.js'
 
-
-class Post extends React.Component {
+class Update extends React.Component {
   constructor () {
     super ()
 
     this.state = {
       entry: '',
-      description: '',
-      image: null
+      description: ''
     }
   }
-
-  logSighting = async (sighting, user) => {
-    event.preventDefault()
-    console.log('sighting is', sighting)
-    console.log('user is', user)
-    const response = await axios.post(`${apiUrl}/sightings`, { sighting }, {
-      'headers': {
-        'Authorization': `Token token=${user.token}`
-      }
-    })
-    return response
-  }
-
-  // logSighting = (data, user) => {
-  //   console.log('sending', data)
-  //   console.log('token is', user.token)
-  //   console.log('apiUrl is', apiUrl)
-  //   return fetch(apiUrl + '/sightings', {
-  //     method: 'POST',
-  //     'headers': {
-  //       'Authorization': `Token token=${user.token}`,
-  //     },
-  //     'body': `${data}`
-  //   })
-  // }
-
 
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
   })
 
-  handleUpload = event => this.setState({
-    [event.target.name]: event.target.files[0]
-  })
-
-  postSighting = event => {
+  debugger
+  updateSighting = async (event) => {
     event.preventDefault()
-    const { entry, description, image } = this.state
+
+    console.log('props', this.props)
+
+    const id = this.props.match.params.id
+    const { entry, description } = this.state
     const { flash, setUser, user } = this.props
     const data = (this.state)
 
-    this.logSighting(data, user)
-      .then(handlePost)
+    updateWithFetch(id, this.state, user)
+      .then(handleErrors)
       .then(() => flash(messages.postSuccess, 'flash-success'))
       .catch(() => flash(messages.failure, 'flash-error'))
   }
 
   render () {
+    const { entry, description} = this.state
+
     return (
       <div>
-        <h1> Post! </h1>
-        <form action="/sightings" onSubmit={this.postSighting} encType="multipart/form-data" id="sightings-form">
+        <h1> Update? </h1>
+        <form action="/sightings" onSubmit={this.updateSighting} encType="multipart/form-data" id="sightings-form">
           <fieldset>
             <label htmlFor="entry">entry</label>
             <input
@@ -93,15 +69,6 @@ class Post extends React.Component {
               pattern="[a-zA-Z0-9-\s]+"
             />
 
-            <label htmlFor="image">image</label>
-            <input
-              name="image"
-              value={this.image}
-              type="file"
-              placeholder="image"
-              onChange={this.handleUpload}
-            />
-
             <button type="submit">chirp!</button>
           </fieldset>
         </form>
@@ -110,4 +77,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post
+export default withRouter(Update)

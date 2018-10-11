@@ -9,6 +9,7 @@ export default {
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
                          ' and try again.',
-  postSuccess: 'chirp chirp',
-  postFailure: 'Aaaaaaaaah'
+  postSuccess: 'Entry created',
+  deleteSuccess:'Entry deleted',
+  failure: 'Aaaaah!'
 }

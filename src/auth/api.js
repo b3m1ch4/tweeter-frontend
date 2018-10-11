@@ -8,6 +8,15 @@ export const handleErrors = res => {
   }
 }
 
+export const handlePost = res => {
+  console.log(res)
+  if (res.status == '201') {
+    return res
+  } else  {
+    throw new Error('Recieved status in 400 or 500 range.')
+  }
+}
+
 export const signUp = credentials => {
   return fetch(apiUrl + '/sign-up', {
     method: 'POST',
