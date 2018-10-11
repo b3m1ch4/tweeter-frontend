@@ -23,8 +23,12 @@ class DisplayPrivate extends React.Component {
     console.log(event.target)
   }
 
-  deleteSighting (event) {
-    console.log(event.target)
+  async deleteSighting (event) {
+    event.preventDefault()
+    const sightingId = event.target.id
+    console.log('ID is', sightingId)
+    await deleteSighting(sightingId, this.props.user)
+    this.setState({sightings: this.state.sightings.filter(sightingId => sightingId !== sightingId)})
   }
 
   render () {
@@ -36,8 +40,8 @@ class DisplayPrivate extends React.Component {
             <td>{sighting._id}</td>
             <td>{sighting.entry}</td>
             <td>{sighting.description}</td>
-            <td><button onClick={this.updateSighting} className="update-button">update</button></td>
-            <td><button onClick={this.deleteSighting} className="delete-button">delete</button></td>
+            <td><button onClick={this.updateSighting} id={sighting._id} className="update-button">update</button></td>
+            <td><button onClick={this.deleteSighting} id={sighting._id} className="delete-button">delete</button></td>
           </tr>
         </tbody>
       )

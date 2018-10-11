@@ -17,23 +17,31 @@ class Post extends React.Component {
       description: '',
       image: null
     }
-
   }
 
-   logSighting = (formData, user) => {
-     console.log('sending', formData)
-     console.log('token is', user.token)
-     console.log('apiUrl is', apiUrl)
-     return fetch(apiUrl + '/sightings', {
-       method: 'POST',
-       headers: {
-         'Content-Type': false,
-         'Process-Data': false,
-         'Authorization': `Token token=${user.token}`,
-       },
-       data: formData
-     })
-   }
+  logSighting = async (sighting, user) => {
+    event.preventDefault()
+    console.log('sighting is', sighting)
+    console.log('user is', user)
+    const response = await axios.post(`${apiUrl}/sightings`, { sighting }, {
+      'headers': {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
+  }
+
+  // logSighting = (data, user) => {
+  //   console.log('sending', data)
+  //   console.log('token is', user.token)
+  //   console.log('apiUrl is', apiUrl)
+  //   return fetch(apiUrl + '/sightings', {
+  //     method: 'POST',
+  //     'headers': {
+  //       'Authorization': `Token token=${user.token}`,
+  //     },
+  //     'body': `${data}`
+  //   })
+  // }
 
 
   handleChange = event => this.setState({
@@ -46,15 +54,12 @@ class Post extends React.Component {
 
   postSighting = event => {
     event.preventDefault()
-    const { entry, description, image} = this.state
+    const { entry, description, image } = this.state
     const { flash, history, setUser, user } = this.props
-    // const formData = new FormData(event.target)
-    const formData = (this.state)
-    console.log('image is', this.state.image)
-    console.log('image should be the object from this form', formData)
+    const data = (this.state)
 
 
-    this.logSighting(formData, user)
+    this.logSighting(data, user)
       .then(handleErrors)
       .then(res => res.json())
       .then(() => flash(messages.postSuccess, 'flash-success'))
@@ -64,7 +69,7 @@ class Post extends React.Component {
 
   render () {
     return (
-      <React.Fragment>
+      <div>
         <h1> Post! </h1>
         <form action="/sightings" onSubmit={this.postSighting} encType="multipart/form-data" id="sightings-form">
           <fieldset>
@@ -92,7 +97,6 @@ class Post extends React.Component {
 
             <label htmlFor="image">image</label>
             <input
-              required
               name="image"
               value={this.image}
               type="file"
@@ -103,7 +107,7 @@ class Post extends React.Component {
             <button type="submit">chirp!</button>
           </fieldset>
         </form>
-      </React.Fragment>
+      </div>
     )
   }
 }

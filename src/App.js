@@ -13,25 +13,7 @@ import Post from './Tweeter/Create.js'
 import apiUrl from './apiConfig.js'
 
 const home = () => (
-  <h1> home </h1>
-)
-
-const post = () => (
-  <React.Fragment>
-    <Post />
-  </React.Fragment>
-)
-
-const tweets = () => (
-  <React.Fragment>
-    <DisplayPublic />
-  </React.Fragment>
-)
-
-const chirps = () => (
-  <React.Fragment>
-    <DisplayPrivate />
-  </React.Fragment>
+  <p> welcome </p>
 )
 
 class App extends Component {
@@ -67,6 +49,7 @@ class App extends Component {
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
 
         <main className="container">
+          <Route exact path="/" render={home} />
           <Route path='/sign-up' render={() => (
             <SignUp flash={this.flash} setUser={this.setUser} />
           )} />
@@ -79,16 +62,16 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
+          <Route exact path="/tweets" render={() => (
+            <DisplayPublic flash={this.flash} user={user} />
+          )} />
+          <Route exact path="/chirps" render={() => (
+            <DisplayPrivate flash={this.flash} user={user} />
+          )} />
+          <Route exact path="/post" render={() => (
+            <Post flash={this.flash} user={user} />
+          )} />
         </main>
-
-        <div>
-          <AuthenticatedRoute exact path="/tweets" component={tweets} />
-          <DisplayPublic flash={this.flash} user={user} />
-          <AuthenticatedRoute exact path="/chirps" component={chirps} />
-          <DisplayPrivate flash={this.flash} user={user} />
-          <AuthenticatedRoute exact path="/post" component={post} />
-          <Post flash={this.flash} user={user} />
-        </div>
       </React.Fragment>
     )
   }
