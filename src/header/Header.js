@@ -1,15 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import './Header.scss'
+
+const alwaysOptions = (
+  <React.Fragment>
+    <Link to="/">Home</Link>
+  </React.Fragment>
+)
 
 const authenticatedOptions = (
   <React.Fragment>
+    <Link to="/post">Log a Sighting</Link>
+    <Link to="/privateindex"> Sighting Log</Link>
+    <Link to="/publicindex">Sightings Log (Read Only)</Link>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
-    <Link to="/publicindex">public index</Link>
-    <Link to="/privateindex">private index</Link>
-    <Link to="/post">Post</Link>
   </React.Fragment>
 )
 
@@ -20,11 +25,6 @@ const unauthenticatedOptions = (
   </React.Fragment>
 )
 
-const alwaysOptions = (
-  <React.Fragment>
-    <Link to="/">Home</Link>
-  </React.Fragment>
-)
 
 const Header = ({ user }) => (
   <header className="main-header">

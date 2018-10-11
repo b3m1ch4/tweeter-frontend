@@ -7,7 +7,6 @@ import Header from '../header/Header.js'
 import user from '../apiConfig.js'
 import axios from 'axios'
 
-
 class Post extends React.Component {
   constructor () {
     super ()
@@ -21,8 +20,6 @@ class Post extends React.Component {
 
   logSighting = async (sighting, user) => {
     event.preventDefault()
-    console.log('sighting is', sighting)
-    console.log('user is', user)
     const response = await axios.post(`${apiUrl}/sightings`, { sighting }, {
       'headers': {
         'Authorization': `Token token=${user.token}`
@@ -30,20 +27,6 @@ class Post extends React.Component {
     })
     return response
   }
-
-  // logSighting = (data, user) => {
-  //   console.log('sending', data)
-  //   console.log('token is', user.token)
-  //   console.log('apiUrl is', apiUrl)
-  //   return fetch(apiUrl + '/sightings', {
-  //     method: 'POST',
-  //     'headers': {
-  //       'Authorization': `Token token=${user.token}`,
-  //     },
-  //     'body': `${data}`
-  //   })
-  // }
-
 
   handleChange = event => this.setState({
     [event.target.name]: event.target.value
@@ -102,7 +85,7 @@ class Post extends React.Component {
               onChange={this.handleUpload}
             />
 
-            <button type="submit">chirp!</button>
+            <button type="submit">post a bird sighting!</button>
           </fieldset>
         </form>
       </div>
@@ -110,4 +93,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post
+export default withRouter(Post)

@@ -6,6 +6,7 @@ import axios from 'axios'
 import messages from '../auth/messages'
 import Header from '../header/Header.js'
 import {deleteWithFetch} from '../fetch/verbs.js'
+import { handleErrors, signUp, signIn, handlePost } from '../auth/api'
 
 class DisplayPrivate extends React.Component {
   constructor (props) {
@@ -15,7 +16,6 @@ class DisplayPrivate extends React.Component {
       origin: apiUrl,
       sightings: []
     }
-
   }
 
   async componentDidMount() {
@@ -29,12 +29,9 @@ class DisplayPrivate extends React.Component {
     const { flash, setUser, user } = this.props
 
     deleteWithFetch(event.target.id, user)
+      .then(handleErrors)
       .then(() => flash(messages.deleteSuccess, 'flash-success'))
       .catch(() => flash(messages.failure, 'flash-error'))
-  }
-
-  updateSighting (event) {
-    console.log(event.target)
   }
 
   render () {
@@ -42,9 +39,8 @@ class DisplayPrivate extends React.Component {
       return (
         <tbody key={sighting._id}>
           <tr>
-            <td>{sighting._id}</td>
-            <td>{sighting.entry}</td>
-            <td>{sighting.description}</td>
+            <td>entry: {sighting.entry}</td>
+            <td>description: {sighting.description}</td>
             <td><button onClick={this.deleteSighting} id={sighting._id} className="delete-button">delete</button></td>
             <td><Link to={`/update/${sighting._id}`}><button onClick={this.updateSighting} id={sighting._id} className="update-button">update</button></Link></td>
           </tr>
@@ -54,7 +50,6 @@ class DisplayPrivate extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>backend origin is {this.state.origin}</h1>
         <table>{displayTable}</table>
       </React.Fragment>
     )

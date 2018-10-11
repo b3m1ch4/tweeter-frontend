@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import apiUrl from '../apiConfig'
 import axios from 'axios'
+import { handleErrors, signUp, signIn, handlePost } from '../auth/api'
 
 class DisplayPublic extends React.Component {
   constructor (props) {
@@ -25,9 +27,8 @@ class DisplayPublic extends React.Component {
       return (
         <tbody key={sighting._id}>
           <tr>
-            <td>{sighting._id}</td>
-            <td>{sighting.entry}</td>
-            <td>{sighting.description}</td>
+            <td>entry: {sighting.entry}</td>
+            <td>description: {sighting.description}</td>
           </tr>
         </tbody>
       )
@@ -35,11 +36,10 @@ class DisplayPublic extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>backend origin is {this.state.origin}</h1>
         <table>{displayTable}</table>
       </React.Fragment>
     )
   }
 }
 
-export default DisplayPublic
+export default withRouter(DisplayPublic)

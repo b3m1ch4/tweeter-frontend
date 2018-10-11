@@ -14,7 +14,7 @@ import Update from './Tweeter/Update.js'
 import apiUrl from './apiConfig.js'
 
 const home = () => (
-  <p> welcome </p>
+  <p> </p>
 )
 
 class App extends Component {

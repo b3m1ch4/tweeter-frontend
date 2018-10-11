@@ -11,5 +11,6 @@ export default {
                          ' and try again.',
   postSuccess: 'Entry created',
   deleteSuccess:'Entry deleted',
-  failure: 'Aaaaah!'
+  updateSuccess: 'Entry updated',
+  failure: 'Looks like something went wrong'
 }

@@ -22,12 +22,8 @@ class Update extends React.Component {
     [event.target.name]: event.target.value
   })
 
-  debugger
   updateSighting = async (event) => {
     event.preventDefault()
-
-    console.log('props', this.props)
-
     const id = this.props.match.params.id
     const { entry, description } = this.state
     const { flash, setUser, user } = this.props
@@ -44,7 +40,7 @@ class Update extends React.Component {
 
     return (
       <div>
-        <h1> Update? </h1>
+        <h1> Need to change something? </h1>
         <form action="/sightings" onSubmit={this.updateSighting} encType="multipart/form-data" id="sightings-form">
           <fieldset>
             <label htmlFor="entry">entry</label>
