@@ -6,7 +6,7 @@ Tweeter is an application that allows users to track bird sightings. I built it 
 <li>Frontend repo: https://github.com/b3m1ch4/tweeter-frontend</li>
 <li>Remote: https://git.heroku.com/tweeter-remote-0808.git</li>
 <li>Backend repo: https://github.com/b3m1ch4/tweeter-backend</li>
-<li>Screenshot: https://i.imgur.com/DTRBLDy.jpg </li>
+<li>Screenshot: ![ERD](https://i.imgur.com/CeYEFs9.png) </li>
 
 ## Tweeter's Stack
 <li> React </li>
@@ -42,8 +42,8 @@ Overall, React is my favourite frontend library and I think it is because it is 
 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
+![ERD](https://i.imgur.com/DTRBLDy.jpg)
 
-![ERD](https://i.imgur.com/CeYEFs9.png)
 
 As a user, I should be able to:
 
