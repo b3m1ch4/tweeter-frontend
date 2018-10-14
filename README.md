@@ -44,6 +44,7 @@ Overall, React is my favourite frontend library and I think it is because it is 
 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
+
 ![Image1](https://i.imgur.com/DTRBLDy.jpg)
 
 As a user, I should be able to:
