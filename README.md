@@ -1,16 +1,13 @@
 # Tweeter ReadMe
 Tweeter is an application that allows users to track bird sightings. I built it using React, Express and MongoDB during General Assembly's Web Development Immersive.
 
+![LandingPage](https://i.imgur.com/CeYEFs9.png)
+
 ## Links
 <li>Web application: https://b3m1ch4.github.io/tweeter-frontend/#/</li>
 <li>Frontend repo: https://github.com/b3m1ch4/tweeter-frontend</li>
 <li>Backend remote: https://git.heroku.com/tweeter-remote-0808.git</li>
 <li>Backend repo: https://github.com/b3m1ch4/tweeter-backend</li>
-<li>Screenshot: </li>
-
-<border>
-![Tweeter-Landing-Page](https://i.imgur.com/CeYEFs9.png)
-</border>
 
 ## Tweeter's Stack
 <li> React </li>
@@ -42,7 +39,10 @@ catch me off guard.
 Overall, React is my favourite frontend library and I think it is because it is a very 'back end seeming' library. While I generally leaned towards the backend, this project truly confirmed that this is my direction in web development.
 
 ### (Known) Problems
-  <li> Create data stream using fetch or axios </li>
+  <li> I would like to improve the user experience in form population </li>
+  <li> I would like to create a virtual model in order for users to see who posted what </li>
+  <li> I would like to fix how React passes the data stream, so users can upload images to my API </li>
+  <li> I would like to add styling to the page </li>
 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
@@ -67,14 +67,15 @@ As a user, I would some day like to be able to:
 <li> make friends with other bird watchers </li>
 
 <details>
-<summary>My brainstorming process</summary>
+<summary>My wireframes and brainstorm: </summary>
 
-![Brainstorm1](https://i.imgur.com/DTRBLDy.jpg)
-![Brainstorm2](https://i.imgur.com/DTRBLDy.jpg)
-![Brainstorm3](https://i.imgur.com/DTRBLDy.jpg)
-![Brainstorm4](https://i.imgur.com/DTRBLDy.jpg)
-![Brainstorm5](https://i.imgur.com/DTRBLDy.jpg)
-![Brainstorm6](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm1](https://i.imgur.com/K8zL3pM.jpg)
+![Brainstorm2](https://i.imgur.com/cN5mEgR.jpg)
+![Brainstorm3](https://i.imgur.com/4aLzgS7.jpg)
+![Brainstorm4](https://i.imgur.com/olnhwvj.jpg)
+![Brainstorm5](https://i.imgur.com/PDXRQ0r.jpg)
+![Brainstorm6](https://i.imgur.com/teETgQB.jpg)
+![Brainstrom7](https://i.imgur.com/Lo4fdg1.jpg)
 
 </details>
 
