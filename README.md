@@ -43,9 +43,7 @@ Overall, React is my favourite frontend library and I think it is because it is 
 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
-<details>
 ![ERD](https://i.imgur.com/DTRBLDy.jpg)
-</details>
 
 As a user, I should be able to:
 
@@ -65,6 +63,10 @@ As a user, I would some day like to be able to:
 <li> view images other users have posted </li>
 <li> make friends with other bird watchers </li>
 
+<details>
+<summary>My brainstorming process</summary>
+<code style="white-space:nowrap;">![ERD](https://i.imgur.com/DTRBLDy.jpg)</code>
+</details>
 
 <blockquote>
 Sightings
