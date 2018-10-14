@@ -44,8 +44,7 @@ Overall, React is my favourite frontend library and I think it is because it is 
 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
-
-![Image1](https://i.imgur.com/DTRBLDy.jpg)
+![ERD](https://i.imgur.com/DTRBLDy.jpg)
 
 As a user, I should be able to:
 
@@ -67,7 +66,9 @@ As a user, I would some day like to be able to:
 
 <details>
 <summary>My brainstorming process</summary>
-<code style="white-space:nowrap;">![ERD](https://i.imgur.com/DTRBLDy.jpg)</code>
+
+![Image1](https://i.imgur.com/DTRBLDy.jpg)</code>
+
 </details>
 
 <blockquote>
