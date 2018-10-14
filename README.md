@@ -8,7 +8,9 @@ Tweeter is an application that allows users to track bird sightings. I built it 
 <li>Backend repo: https://github.com/b3m1ch4/tweeter-backend</li>
 <li>Screenshot: </li>
 
+<border>
 ![Tweeter-Landing-Page](https://i.imgur.com/CeYEFs9.png)
+</border>
 
 ## Tweeter's Stack
 <li> React </li>
@@ -67,16 +69,21 @@ As a user, I would some day like to be able to:
 <details>
 <summary>My brainstorming process</summary>
 
-![Image1](https://i.imgur.com/DTRBLDy.jpg)</code>
+![Brainstorm1](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm2](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm3](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm4](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm5](https://i.imgur.com/DTRBLDy.jpg)
+![Brainstorm6](https://i.imgur.com/DTRBLDy.jpg)
 
 </details>
 
 <blockquote>
 Sightings
-<p> POST: /sightings uploads#create (client -> API -> Amazon S3 -> API -> client) </p>
-<p> GET: /uploads/ uploads#index (client -> API -> client) </p>
-<p> PATCH: /uploads/:id uploads#update (client -> API -> client) </p>
-<p> DELETE: /uploads/:id uploads#despoy (client -> API -> Amazon S3 -> API -> client) </p>
+<p> POST: /sightings sightings#create (client -> API -> client) </p>
+<p> GET: /sightings/ sightings#index (client -> API -> client) </p>
+<p> PATCH: /sightings/:id sightings#update (client -> API -> client) </p>
+<p> DELETE: /sightings/:id sightings#destroy (client -> API -> client) </p>
 </blockquote>
 
 ### Setup
@@ -84,6 +91,6 @@ Thank you for reading about Tweeter! If you'd like to use my code to make your
 own bird watching app, please fork and clone the backend and frontend repos listed
 above. Additionally, you'll need to setup:
 
-<li>node modules in package.json with the terminal command npm install</li>
-<li>a react application with the terminal commend create-react-app</li>
+<li>node modules in package.json with the terminal command ```npm install```</li>
+<li>a react application with the terminal command ```create-react-app```</li>
 <li>setup a remote server (I suggest Heroku)</li>
