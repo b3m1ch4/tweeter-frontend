@@ -72,7 +72,7 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/post' render={() => (
             <Post flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} exact path='/update/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/update/:id/' render={() => (
             <Update flash={this.flash} user={user} />
           )} />
         </main>

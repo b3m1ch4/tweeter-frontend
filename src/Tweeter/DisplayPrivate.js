@@ -47,11 +47,15 @@ class DisplayPrivate extends React.Component {
   deleteSighting = event => {
     event.preventDefault()
     const { entry, description, image } = this.state
-    const { flash, setUser, user } = this.props
+    const { flash, history, setUser, user } = this.props
 
     deleteWithFetch(event.target.id, user)
       .then(handleErrors)
+      .then(this.setState({
+        sightings: this.state.sightings.filter(sighting => sighting._id !== event.target.id)
+      }))
       .then(() => flash(messages.deleteSuccess, 'flash-success'))
+      .then(() => history.push('/privateindex'))
       .catch(() => flash(messages.failure, 'flash-error'))
   }
 

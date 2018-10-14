@@ -39,12 +39,13 @@ class Post extends React.Component {
   postSighting = event => {
     event.preventDefault()
     const { entry, description, image } = this.state
-    const { flash, setUser, user } = this.props
+    const { flash, history, setUser, user } = this.props
     const data = (this.state)
 
     this.logSighting(data, user)
       .then(handlePost)
       .then(() => flash(messages.postSuccess, 'flash-success'))
+      .then(() => history.push('/privateindex'))
       .catch(() => flash(messages.failure, 'flash-error'))
   }
 

@@ -9,7 +9,7 @@ import axios from 'axios'
 import { updateWithFetch } from '../fetch/verbs.js'
 
 class Update extends React.Component {
-  constructor () {
+  constructor (props) {
     super ()
 
     this.state = {
@@ -26,41 +26,42 @@ class Update extends React.Component {
     event.preventDefault()
     const id = this.props.match.params.id
     const { entry, description } = this.state
-    const { flash, setUser, user } = this.props
+    const { flash, history, setUser, user } = this.props
     const data = (this.state)
 
     updateWithFetch(id, this.state, user)
       .then(handleErrors)
       .then(() => flash(messages.postSuccess, 'flash-success'))
+      .then(() => history.push('/privateindex'))
       .catch(() => flash(messages.failure, 'flash-error'))
   }
 
   render () {
-    const { entry, description} = this.state
+    const { entry, description } = this.state
 
     return (
       <div>
         <h1> Need to change something? </h1>
+        <p> entry: {entry} </p>
+        <p> description: {description} </p>
         <form action="/sightings" onSubmit={this.updateSighting} encType="multipart/form-data" id="sightings-form">
           <fieldset>
-            <label htmlFor="entry">entry</label>
             <input
               required
               name="entry"
-              value={this.entry}
+              value={entry}
               type="text"
-              placeholder="entry"
+              placeholder="change entry name"
               onChange={this.handleChange}
               pattern="[a-zA-Z0-9-\s]+"
             />
 
-            <label htmlFor="description">description</label>
             <input
               required
               name="description"
-              value={this.description}
+              value={description}
               type="description"
-              placeholder="entry"
+              placeholder="change description"
               onChange={this.handleChange}
               pattern="[a-zA-Z0-9-\s]+"
             />
