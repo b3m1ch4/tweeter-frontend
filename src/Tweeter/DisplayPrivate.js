@@ -19,8 +19,29 @@ class DisplayPrivate extends React.Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get(`${apiUrl}/sightings`)
-    this.setState({sightings: response.data.sightings})
+    const { flash, user } = this.props
+    const response = await axios.get(apiUrl + '/sightings', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Token token=${user.token}`
+      }
+    })
+    const allSightings = response.data.sightings
+    let mySightings = []
+
+    const checkOwner = (sighting) => {
+      if (sighting.owner == user._id)
+        return sighting
+    }
+
+    const filterOwner = (allSightings, user) => {
+      mySightings = allSightings.filter(checkOwner)
+    }
+
+    filterOwner(allSightings, user)
+
+    this.setState({sightings: mySightings})
   }
 
   deleteSighting = event => {
