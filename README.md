@@ -35,7 +35,7 @@ to me as a good frontend framework because it has a robust routering system. Thi
 but in exchange it requires much finer routering tuning. It is straightforward, but it did
 catch me off guard.
 
-Overall, React is my favourite frontend library and I think it is because it is a very 'back end seeming' library. While I generally leaned towards the backend, this project truly confirmed that this is my direction in web development. 
+Overall, React is my favourite frontend library and I think it is because it is a very 'back end seeming' library. While I generally leaned towards the backend, this project truly confirmed that this is my direction in web development.
 
 ### (Known) Problems
   <li> Create data stream using fetch or axios </li>
@@ -43,7 +43,7 @@ Overall, React is my favourite frontend library and I think it is because it is 
 ### User Stories and future development
 Entity Relationship Diagram (ERD):
 
-https://i.imgur.com/CeYEFs9.png
+![ERD](https://i.imgur.com/CeYEFs9.png)
 
 As a user, I should be able to:
 
