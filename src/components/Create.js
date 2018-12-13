@@ -77,7 +77,19 @@ class Post extends React.Component {
               pattern="[a-zA-Z0-9-\s]+"
             />
 
+            <label htmlFor="image">image</label>
+            <input
+              type="file"
+              id="file"
+              name="file"
+              placeholder="Upload an image"
+              required
+              onChange={this.uploadFile}
+            />
+            {this.state.image && <img src=
+              {this.state.image} alt="Preview" />}
             <button type="submit">post a bird sighting!</button>
+
           </fieldset>
         </form>
       </div>

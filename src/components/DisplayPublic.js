@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 import { handleErrors, signUp, signIn, handlePost } from '../auth/api'
+import LogEntryCard from './LogEntryCard.js'
 
 class DisplayPublic extends React.Component {
   constructor (props) {
@@ -11,7 +12,7 @@ class DisplayPublic extends React.Component {
     this.state = {
       say: 'tweet tweet',
       origin: apiUrl,
-      sightings: []
+      sightings: [],
     }
 
   }
@@ -22,21 +23,24 @@ class DisplayPublic extends React.Component {
   }
 
   render () {
+    console.log('display state', this.state)
 
     const displayTable = this.state.sightings.map(sighting => {
+
       return (
-        <tbody key={sighting._id}>
-          <tr>
-            <td>entry: {sighting.entry}</td>
-            <td>description: {sighting.description}</td>
-          </tr>
-        </tbody>
+
+        <LogEntryCard key={sighting._id}
+          id={sighting._id}
+          name={sighting.entry}
+          description={sighting.description}
+        />
       )
+
     })
 
     return (
       <React.Fragment>
-        <table>{displayTable}</table>
+        {displayTable}
       </React.Fragment>
     )
   }
