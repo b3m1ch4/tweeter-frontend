@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
-import './App.scss'
+import './home.scss'
 import { Route, Link } from 'react-router-dom'
-import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
-import Header from './header/Header'
-import SignUp from './auth/components/SignUp'
-import SignIn from './auth/components/SignIn'
-import SignOut from './auth/components/SignOut'
-import ChangePassword from './auth/components/ChangePassword'
-import DisplayPublic from './components/DisplayPublic.js'
-import DisplayPrivate from './components/DisplayPrivate.js'
-import Post from './components/Create.js'
-import Update from './components/Update.js'
-import apiUrl from './apiConfig.js'
+import AuthenticatedRoute from '../auth/components/AuthenticatedRoute'
+import Header from '../header/Header'
+import SignUp from '../auth/components/SignUp'
+import SignIn from '../auth/components/SignIn'
+import SignOut from '../auth/components/SignOut'
+import ChangePassword from '../auth/components/ChangePassword'
+import DisplayPublic from '../components/DisplayPublic.js'
+import DisplayPrivate from '../components/DisplayPrivate.js'
+import SpeciesEntry from '../components/SpeciesEntry'
+import Post from '../components/Create.js'
+import Update from '../components/Update.js'
+import apiUrl from '../apiConfig.js'
 
 const home = () => (
   <p> </p>
 )
-
 class App extends Component {
   constructor () {
     super()
-
     this.state = {
       user: null,
       flashMessage: '',
@@ -68,6 +67,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/privateindex' render={() => (
             <DisplayPrivate flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/encyclopedia' render={() => (
+            <SpeciesEntry flash={this.flash} user={user} />
           )} />
           <AuthenticatedRoute user={user} exact path='/post' render={() => (
             <Post flash={this.flash} user={user} />

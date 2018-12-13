@@ -13,6 +13,7 @@ const authenticatedOptions = (
     <Link to="/post">Log a Sighting</Link>
     <Link to="/privateindex"> Sighting Log</Link>
     <Link to="/publicindex">Sightings Log (Read Only)</Link>
+    <Link to="/encyclopedia">Encyclopedia</Link>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
   </React.Fragment>
