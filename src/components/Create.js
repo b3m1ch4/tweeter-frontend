@@ -14,7 +14,7 @@ class Post extends React.Component {
     this.state = {
       entry: '',
       description: '',
-      image: null
+      image: ''
     }
   }
 
@@ -28,13 +28,30 @@ class Post extends React.Component {
     return response
   }
 
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
+  handleChange = (event) => {
+    const { name, type, value } = event.target
+    console.log( {name, type, value} )
+    const val = type === 'number' ? parseFloat(value) : value
+    this.setState({ [name]: val })
+  };
 
-  handleUpload = event => this.setState({
-    [event.target.name]: event.target.files[0]
-  })
+  uploadFile = async event => {
+    console.log('uploading file')
+    const files = event.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'tweeter')
+    const res = await fetch('https://api.cloudinary.com/v1_1/dln5bha2g/image/upload', {
+      method: 'POST',
+      body: data
+    })
+    const file = await res.json()
+    console.log(file)
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url
+    })
+  }
 
   postSighting = event => {
     event.preventDefault()

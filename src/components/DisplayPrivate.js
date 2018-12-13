@@ -66,6 +66,7 @@ class DisplayPrivate extends React.Component {
           <tr>
             <td>entry: {sighting.entry}</td>
             <td>description: {sighting.description}</td>
+            <td>image: <img src={sighting.image} /></td>
             <td><button onClick={this.deleteSighting} id={sighting._id} className="delete-button">delete</button></td>
             <td><Link to={`/update/${sighting._id}`}><button onClick={this.updateSighting} id={sighting._id} className="update-button">update</button></Link></td>
           </tr>

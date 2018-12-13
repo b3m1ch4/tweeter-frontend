@@ -33,6 +33,7 @@ class DisplayPublic extends React.Component {
           id={sighting._id}
           name={sighting.entry}
           description={sighting.description}
+          image={sighting.image && <img src={sighting.image} alt={sighting.entry} />}
         />
       )
 
